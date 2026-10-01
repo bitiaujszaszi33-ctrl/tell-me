@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07100b">
+
+    <title>TELL ME — Conversation Starter</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- Ambient background -->
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+        <div class="grain"></div>
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div class="brand">
+                <span class="brand-mark">✦</span>
+                <div>
+                    <h1>TELL ME</h1>
+                    <span class="brand-subtitle">A conversation starter</span>
+                </div>
+            </div>
+
+            <button
+                class="rules-trigger"
+                id="rulesButton"
+                aria-label="Open game rules">
+                <span>Rules</span>
+                <span class="rules-icon">?</span>
+            </button>
+
+        </header>
+
+        <!-- Main game -->
+        <main class="game-container">
+
+            <section class="intro">
+                <span class="eyebrow">THE DECK</span>
+
+                <h2>
+                    Some questions are meant
+                    <em>to be asked.</em>
+                </h2>
+
+                <p>
+                    Take your time. Be honest. Let the conversation go wherever it wants.
+                </p>
+            </section>
+
+            <!-- Card -->
+            <section class="card-area">
+
+                <button
+                    class="navigation-button previous"
+                    id="previousButton"
+                    aria-label="Previous question">
+                    <span>←</span>
+                </button>
+
+                <article class="question-card" id="questionCard">
+
+                    <div class="card-decoration decoration-top-left">❧</div>
+                    <div class="card-decoration decoration-top-right">❧</div>
+                    <div class="card-decoration decoration-bottom-left">❧</div>
+                    <div class="card-decoration decoration-bottom-right">❧</div>
+
+                    <div class="card-inner">
+
+                        <div class="card-header">
+                            <span class="card-label">QUESTION</span>
+
+                            <span class="question-number">
+                                <span id="currentNumber">01</span>
+                                <span class="number-divider">/</span>
+                                <span>100</span>
+                            </span>
+                        </div>
+
+                        <div class="question-content">
+                            <span class="quote-mark">“</span>
+
+                            <h3 id="questionText">
+                                Have you ever been afraid to share your opinion?
+                                If so, why?
+                            </h3>
+
+                            <span class="quote-mark closing">”</span>
+                        </div>
+
+                        <div class="card-footer">
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div
+                                        class="progress-fill"
+                                        id="progressFill">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <span class="swipe-hint">
+                                Swipe or use the arrows
+                            </span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <button
+                    class="navigation-button next"
+                    id="nextButton"
+                    aria-label="Next question">
+                    <span>→</span>
+                </button>
+
+            </section>
+
+            <!-- Bottom controls -->
+            <section class="controls">
+
+                <button class="control-button" id="shuffleButton">
+                    <span class="control-icon">⤨</span>
+                    <span>Shuffle</span>
+                </button>
+
+                <button class="control-button primary" id="nextQuestionButton">
+                    <span>Next question</span>
+                    <span class="arrow">→</span>
+                </button>
+
+                <button class="control-button" id="restartButton">
+                    <span class="control-icon">↻</span>
+                    <span>Restart</span>
+                </button>
+
+            </section>
+
+            <div class="deck-counter">
+                <span id="remainingText">100 questions to explore</span>
+            </div>
+
+        </main>
+
+        <!-- Rules modal -->
+        <div
+            class="modal-overlay"
+            id="rulesModal"
+            aria-hidden="true">
+
+            <div
+                class="rules-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="rulesTitle">
+
+                <button
+                    class="close-button"
+                    id="closeRules"
+                    aria-label="Close rules">
+                    ×
+                </button>
+
+                <div class="modal-decoration">✦</div>
+
+                <span class="modal-eyebrow">BEFORE YOU BEGIN</span>
+
+                <h2 id="rulesTitle">How to play</h2>
+
+                <div class="rules-divider">
+                    <span>❧</span>
+                </div>
+
+                <div class="rules-content">
+
+                    <div class="rule">
+                        <span class="rule-number">01</span>
+                        <div>
+                            <h3>Choose a question</h3>
+                            <p>
+                                Take turns answering the question shown on the card.
+                                There are 100 questions in the deck.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="rule-number">02</span>
+                        <div>
+                            <h3>Be honest</h3>
+                            <p>
+                                There are no right or wrong answers. Share only what
+                                you feel comfortable sharing.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="rule-number">03</span>
+                        <div>
+                            <h3>Move through the deck</h3>
+                            <p>
+                                Press <strong>Next question</strong> or the
+                                <strong>→</strong> arrow to move forward.
+                                Press the <strong>←</strong> arrow to return to
+                                the previous question.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="rule-number">04</span>
+                        <div>
+                            <h3>Shuffle the deck</h3>
+                            <p>
+                                Use <strong>Shuffle</strong> whenever you want
+                                the questions to appear in a new order.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="rule">
+                        <span class="rule-number">05</span>
+                        <div>
+                            <h3>No pressure</h3>
+                            <p>
+                                You can always skip a question. The goal is to
+                                create meaningful conversations, not uncomfortable ones.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button
+                    class="modal-start-button"
+                    id="startGameButton">
+                    <span>Let's talk</span>
+                    <span>→</span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Toast -->
+        <div class="toast" id="toast">
+            <span class="toast-icon">✦</span>
+            <span id="toastMessage">Deck shuffled</span>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
